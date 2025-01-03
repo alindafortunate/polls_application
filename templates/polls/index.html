@@ -1,0 +1,26 @@
+{% extends '_base.html' %}
+
+{% block title %}index{% endblock title %}
+
+
+{% block content %}
+
+{% if latest_question_list %}
+<ul>
+
+    {% for question in latest_question_list %}
+    <li>
+        <p><a href="{% url 'detail' question.id %}">{{question.question_text}}</a></p>
+    </li>
+
+
+    {% endfor %}
+    {% else %}
+    <p>There are no polls available.</p>
+
+</ul>
+
+{% endif %}
+
+
+{% endblock content %}
